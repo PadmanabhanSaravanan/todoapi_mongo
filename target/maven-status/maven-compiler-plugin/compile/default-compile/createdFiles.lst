@@ -1,0 +1,13 @@
+com\company\todoapp\configurations\SecurityConfigurations.class
+com\company\todoapp\services\repository\TodoMongoDBService.class
+com\company\todoapp\services\ITodoService.class
+com\company\todoapp\configurations\MongoConfig.class
+com\company\todoapp\controllers\TodoController.class
+com\company\todoapp\models\Todo.class
+com\company\todoapp\services\repository\TodoStaticService.class
+com\company\todoapp\configurations\JacksonConfig.class
+com\company\todoapp\dtos\TodoResponseDTO.class
+com\company\todoapp\TodoappApplication.class
+com\company\todoapp\repository\mongodb\TodoMongoRepository.class
+com\company\todoapp\serializers\TodoSerializer.class
+com\company\todoapp\exceptions\TodoNotFoundException.class

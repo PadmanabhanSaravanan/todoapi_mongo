@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Todo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">todoapp</a> &gt; <a href="index.source.html" class="el_package">com.company.todoapp.models</a> &gt; <span class="el_source">Todo.java</span></div><h1>Todo.java</h1><pre class="source lang-java linenums">package com.company.todoapp.models;
+
+import java.util.Date;
+import java.util.Objects;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.hateoas.RepresentationModel;
+
+@Document(collection = &quot;todos&quot;)
+@TypeAlias(&quot;Todo&quot;)
+public class Todo {
+
+	@Id
+	private String id; // Changed to String
+
+	@Field(&quot;title&quot;)
+	private String title;
+
+	@Field(&quot;description&quot;)
+	private String description;
+
+	@Field(&quot;status&quot;)
+	private boolean status;
+
+	@Field(&quot;targetDate&quot;)
+	private Date targetDate;
+
+	// Constructors
+	public Todo() {
+<span class="fc" id="L33">		super();</span>
+<span class="fc" id="L34">	}</span>
+
+	public Todo(String id, String title, String description, boolean status, Date targetDate) {
+<span class="fc" id="L37">		super();</span>
+<span class="fc" id="L38">		this.id = id;</span>
+<span class="fc" id="L39">		this.title = title;</span>
+<span class="fc" id="L40">		this.description = description;</span>
+<span class="fc" id="L41">		this.status = status;</span>
+<span class="fc" id="L42">		this.targetDate = targetDate;</span>
+<span class="fc" id="L43">	}</span>
+
+	// Getters and Setters
+	public String getId() {
+<span class="fc" id="L47">		return id; // Changed to String</span>
+	}
+
+	public void setId(String id) {
+<span class="fc" id="L51">		this.id = id; // Changed to String</span>
+<span class="fc" id="L52">	}</span>
+
+	public String getTitle() {
+<span class="fc" id="L55">		return title;</span>
+	}
+
+	public void setTitle(String title) {
+<span class="fc" id="L59">		this.title = title;</span>
+<span class="fc" id="L60">	}</span>
+
+	public String getDescription() {
+<span class="fc" id="L63">		return description;</span>
+	}
+
+	public void setDescription(String description) {
+<span class="fc" id="L67">		this.description = description;</span>
+<span class="fc" id="L68">	}</span>
+
+	public boolean isStatus() {
+<span class="fc" id="L71">		return status;</span>
+	}
+
+	public void setStatus(boolean status) {
+<span class="fc" id="L75">		this.status = status;</span>
+<span class="fc" id="L76">	}</span>
+
+	public Date getTargetDate() {
+<span class="fc" id="L79">		return targetDate;</span>
+	}
+
+	public void setTargetDate(Date targetDate) {
+<span class="fc" id="L83">		this.targetDate = targetDate;</span>
+<span class="fc" id="L84">	}</span>
+
+	// hashCode, equals, and toString methods
+	@Override
+	public int hashCode() {
+<span class="fc" id="L89">		return Objects.hash(description, id, status, targetDate, title);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L95">			return true;</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		if (obj == null)</span>
+<span class="fc" id="L97">			return false;</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">		if (getClass() != obj.getClass())</span>
+<span class="fc" id="L99">			return false;</span>
+<span class="fc" id="L100">		Todo other = (Todo) obj;</span>
+<span class="pc bpc" id="L101" title="2 of 6 branches missed.">		return Objects.equals(description, other.description) &amp;&amp; Objects.equals(id, other.id)</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">				&amp;&amp; status == other.status &amp;&amp; Objects.equals(targetDate, other.targetDate)</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">				&amp;&amp; Objects.equals(title, other.title);</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="fc" id="L108">		return &quot;Todo [id=&quot; + id + &quot;, title=&quot; + title + &quot;, description=&quot; + description + &quot;, status=&quot; + status</span>
+				+ &quot;, targetDate=&quot; + targetDate + &quot;]&quot;;
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
