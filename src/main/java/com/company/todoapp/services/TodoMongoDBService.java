@@ -1,4 +1,4 @@
-package com.company.todoapp.services.repository;
+package com.company.todoapp.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.company.todoapp.models.Todo;
 import com.company.todoapp.repository.mongodb.TodoMongoRepository;
-import com.company.todoapp.services.ITodoService;
 
 @Service
 public class TodoMongoDBService implements ITodoService {

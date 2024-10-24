@@ -10,7 +10,7 @@ import java.util.Optional;
 import com.company.todoapp.exceptions.TodoNotFoundException;
 import com.company.todoapp.models.Todo;
 import com.company.todoapp.repository.mongodb.TodoMongoRepository;
-import com.company.todoapp.services.repository.TodoMongoDBService;
+import com.company.todoapp.services.TodoMongoDBService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,11 +1,10 @@
-package com.company.todoapp.services.repository;
+package com.company.todoapp.services;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.company.todoapp.models.Todo;
-import com.company.todoapp.services.ITodoService;
 
 public class TodoStaticService implements ITodoService {
 
