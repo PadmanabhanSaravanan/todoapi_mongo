@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+todoapp,com.company.todoapp.dtos,TodoResponseDTO,83,66,8,8,18,16,20,3,12,3
+todoapp,com.company.todoapp.serializers,TodoSerializer,38,0,0,0,12,0,3,0,3,0
+todoapp,com.company.todoapp.exceptions,TodoNotFoundException,0,4,0,0,0,2,0,1,0,1
+todoapp,com.company.todoapp,TodoappApplication,8,0,0,0,3,0,2,0,2,0
+todoapp,com.company.todoapp.services,TodoMongoDBService,0,99,1,7,0,25,1,10,0,7
+todoapp,com.company.todoapp.services,TodoStaticService,4,147,1,13,1,32,1,14,0,8
+todoapp,com.company.todoapp.controllers,TodoController,50,118,6,6,12,27,8,9,2,9
+todoapp,com.company.todoapp.models,Todo,0,151,3,13,0,36,3,20,0,15
+todoapp,com.company.todoapp.configurations,MongoConfig,30,0,0,0,8,0,5,0,5,0
+todoapp,com.company.todoapp.configurations,SecurityConfigurations,49,0,0,0,7,0,2,0,2,0
+todoapp,com.company.todoapp.configurations,JacksonConfig,24,0,0,0,6,0,2,0,2,0

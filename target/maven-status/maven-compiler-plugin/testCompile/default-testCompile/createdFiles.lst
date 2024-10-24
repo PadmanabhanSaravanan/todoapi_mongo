@@ -1,0 +1,6 @@
+com\company\todoapp\TodoMockDataTest.class
+com\company\todoapp\TodoappApplicationTests.class
+com\company\todoapp\TodoMongoDBServiceTest.class
+com\company\todoapp\TodoTest.class
+com\company\todoapp\TodoControllerTests.class
+com\company\todoapp\TodoStaticServiceTest.class

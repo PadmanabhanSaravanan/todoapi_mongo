@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoMongoDBService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">todoapp</a> &gt; <a href="index.source.html" class="el_package">com.company.todoapp.services</a> &gt; <span class="el_source">TodoMongoDBService.java</span></div><h1>TodoMongoDBService.java</h1><pre class="source lang-java linenums">package com.company.todoapp.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.company.todoapp.exceptions.TodoNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.company.todoapp.models.Todo;
+import com.company.todoapp.repository.mongodb.TodoMongoRepository;
+
+@Service
+<span class="fc" id="L14">public class TodoMongoDBService implements ITodoService {</span>
+
+    @Autowired
+    private TodoMongoRepository todoMongoRepo;
+
+    @Override
+    public List&lt;Todo&gt; getAllTodos() {
+<span class="fc" id="L21">        return todoMongoRepo.findAll();</span>
+    }
+
+    @Override
+    public Todo getById(String id) { // Changed to String
+<span class="fc" id="L26">        Optional&lt;Todo&gt; todo = todoMongoRepo.findById(id);</span>
+<span class="fc" id="L27">        return todo.orElse(null);</span>
+    }
+
+    @Override
+    public List&lt;Todo&gt; getByTitle(String title) {
+<span class="fc" id="L32">        var todo = todoMongoRepo.findByTitle(title);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (todo == null) {</span>
+<span class="fc" id="L34">            throw new TodoNotFoundException(&quot;Todo with title '&quot; + title + &quot;' not found&quot;);</span>
+        }
+<span class="fc" id="L36">        return todo;</span>
+    }
+
+    @Override
+    public Todo addTodo(Todo todo) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (todo.getId() == null) {</span>
+<span class="fc" id="L42">            todo.setId(java.util.UUID.randomUUID().toString()); // Generate a new UUID as a String if not already set</span>
+        }
+<span class="fc" id="L44">        return todoMongoRepo.save(todo);</span>
+    }
+
+    @Override
+    public Todo updateTodo(String id, Todo todo) { // Changed to String
+<span class="fc" id="L49">        Optional&lt;Todo&gt; existingTodo = todoMongoRepo.findById(id);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (existingTodo.isPresent()) {</span>
+<span class="fc" id="L51">            Todo updateTodo = existingTodo.get();</span>
+<span class="fc" id="L52">            updateTodo.setTitle(todo.getTitle());</span>
+<span class="fc" id="L53">            updateTodo.setDescription(todo.getDescription());</span>
+<span class="fc" id="L54">            updateTodo.setStatus(todo.isStatus());</span>
+<span class="fc" id="L55">            updateTodo.setTargetDate(todo.getTargetDate());</span>
+            // Update any other fields you want to modify
+<span class="fc" id="L57">            return todoMongoRepo.save(updateTodo);</span>
+        }
+<span class="fc" id="L59">        return null;</span>
+    }
+
+    @Override
+    public Todo deleteTodo(String id) { // Changed to String
+<span class="fc" id="L64">        Optional&lt;Todo&gt; existingTodo = todoMongoRepo.findById(id);</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (existingTodo.isPresent()) {</span>
+<span class="fc" id="L66">            todoMongoRepo.deleteById(id);</span>
+<span class="fc" id="L67">            return existingTodo.get();</span>
+        }
+<span class="fc" id="L69">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
